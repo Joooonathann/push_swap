@@ -6,14 +6,14 @@
 /*   By: jalbiser <jalbiser@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/25 13:57:01 by jalbiser          #+#    #+#             */
-/*   Updated: 2024/03/25 15:32:05 by jalbiser         ###   ########.fr       */
+/*   Updated: 2024/03/25 15:38:00 by jalbiser         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 #include <stdio.h>
 
-t_stack	*ft_add_stack(int n, t_stack **lst)
+void	*ft_add_stack(int n, t_stack **lst)
 {
 	t_stack	*result;
 	t_stack *last;
@@ -27,11 +27,10 @@ t_stack	*ft_add_stack(int n, t_stack **lst)
 	result->number = n;
 	result->previous = *lst;
 	result->next = NULL;
-	 if (!last)
+	if (!last)
         *lst = result;
     else
         last->next = result;
-	return (result);
 }
 
 t_stack	*ft_create_stack(char **argv, int i)
@@ -65,13 +64,11 @@ int	main(int argc, char **argv)
 	else
 		return (1);
 		int z = 0;
-	while (z != 2)
+	t_stack	*tmp = a;
+	while (tmp)
 	{
-		printf("%d\n", a->number);
-		a = a->next;
-		z++;
+		printf("%d\n", tmp->number);
+		tmp = tmp->next;
 	}
-	printf("\n\n");
-	printf("%d\n", a->previous->number);
 	return (0);
 }
