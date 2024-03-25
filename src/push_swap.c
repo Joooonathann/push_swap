@@ -13,7 +13,7 @@
 #include "push_swap.h"
 #include <stdio.h>
 
-void	*ft_add_stack(int n, t_stack **lst)
+void	*ft_add_stack(int n, t_stack **stack)
 {
 	t_stack	*result;
 	t_stack *last;
@@ -21,14 +21,14 @@ void	*ft_add_stack(int n, t_stack **lst)
 	result = malloc(sizeof(t_stack));
 	if (!result)
 		return (NULL);
-	last = *lst;
+	last = *stack;
     while (last && last->next)
         last = last->next;
 	result->number = n;
-	result->previous = *lst;
+	result->previous = *stack;
 	result->next = NULL;
 	if (!last)
-        *lst = result;
+        *stack = result;
     else
         last->next = result;
 }
@@ -63,7 +63,7 @@ int	main(int argc, char **argv)
 	}
 	else
 		return (1);
-		int z = 0;
+	int z = 0;
 	t_stack	*tmp = a;
 	while (tmp)
 	{
