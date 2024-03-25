@@ -6,7 +6,7 @@
 /*   By: jalbiser <jalbiser@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/25 13:57:51 by jalbiser          #+#    #+#             */
-/*   Updated: 2024/03/25 13:58:36 by jalbiser         ###   ########.fr       */
+/*   Updated: 2024/03/25 14:12:51 by jalbiser         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,12 +35,10 @@ static int	ft_is_int_valid(char **argv, int i)
 	while (argv[i])
 	{
 		if ((ft_atoi(argv[i]) > 2147483647) || (ft_atoi(argv[i]) < -2147483648))
-		{
-			ft_putendl_fd("Error", 1);
-			exit(1);
-		}
+			return (1);
 		i++;
 	}
+	return (0);
 }
 
 static int	ft_double(char **argv, int start)
@@ -63,12 +61,10 @@ static int	ft_double(char **argv, int start)
 			z++;
 		}
 		if (double_count != 1)
-		{
-			ft_putendl_fd("Error", 1);
-			exit(1);
-		}
+			return (1);
 		i++;
 	}
+	return (0);
 }
 
 void	ft_verify(char **argv, int start)
