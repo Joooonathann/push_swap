@@ -1,40 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_stack.c                                       :+:      :+:    :+:   */
+/*   rr.c                                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jalbiser <jalbiser@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/27 11:41:36 by jalbiser          #+#    #+#             */
-/*   Updated: 2024/03/27 13:53:46 by jalbiser         ###   ########.fr       */
+/*   Created: 2024/04/04 13:41:56 by jalbiser          #+#    #+#             */
+/*   Updated: 2024/04/04 13:53:33 by jalbiser         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	push_stack(t_stack **a, t_stack **b, int pile, int print)
+void	rr(t_stack **a, t_stack **b, int print)
 {
-	t_stack	*tmp;
+	t_stack	*first;
 
-	if (*b == NULL)
+	if ((count_stack(*a) < 2) || (count_stack(*b) < 2))
 		return ;
-	tmp = *b;
-	*b = (*b)->next;
-	if (*b)
-		(*b)->previous = NULL;
-	if (!*a)
-	{
-		*a = tmp;
-		tmp->next = NULL;
-	}
-	else
-	{
-		tmp->next = *a;
-		(*a)->previous = tmp;
-		*a = tmp;
-	}
-	if (pile == 1 && print)
-		ft_putendl_fd("pa", 10);
-	else if (pile == 2 && print)
-		ft_putendl_fd("pb", 1);
+	rotate_pile(a, 1, 0);
+	rotate_pile(b, 2, 0);
+	ft_putendl_fd("rb", 1);
 }

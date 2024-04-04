@@ -6,12 +6,11 @@
 /*   By: jalbiser <jalbiser@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/25 13:57:01 by jalbiser          #+#    #+#             */
-/*   Updated: 2024/03/25 15:38:00 by jalbiser         ###   ########.fr       */
+/*   Updated: 2024/04/04 13:29:21 by jalbiser         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-#include <stdio.h>
 
 void	*ft_add_stack(int n, t_stack **stack)
 {
@@ -63,12 +62,5 @@ int	main(int argc, char **argv)
 	}
 	else
 		return (1);
-	int z = 0;
-	t_stack	*tmp = a;
-	while (tmp)
-	{
-		printf("%d\n", tmp->number);
-		tmp = tmp->next;
-	}
 	return (0);
 }
