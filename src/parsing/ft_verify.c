@@ -6,7 +6,7 @@
 /*   By: jalbiser <jalbiser@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/25 13:57:51 by jalbiser          #+#    #+#             */
-/*   Updated: 2024/03/25 14:12:51 by jalbiser         ###   ########.fr       */
+/*   Updated: 2024/04/10 15:04:36 by jalbiser         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,8 @@ static int	ft_is_int(char **argv, int i)
 		z = 0;
 		while (argv[i][z])
 		{
+			if (argv[i][z] == '+' || argv[i][z] == '-')
+				z++;
 			if (!ft_isdigit(argv[i][z]))
 				return (1);
 			z++;

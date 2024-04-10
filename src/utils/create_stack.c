@@ -1,24 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   rr.c                                               :+:      :+:    :+:   */
+/*   create_stack.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jalbiser <jalbiser@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/04 13:41:56 by jalbiser          #+#    #+#             */
-/*   Updated: 2024/04/10 15:36:05 by jalbiser         ###   ########.fr       */
+/*   Created: 2024/04/10 15:28:10 by jalbiser          #+#    #+#             */
+/*   Updated: 2024/04/10 15:28:17 by jalbiser         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	rr(t_stack **a, t_stack **b)
+t_stack	*create_stack(char **argv, int i)
 {
-	t_stack	*first;
+	t_stack	*result;
 
-	if ((count_stack(*a) < 2) || (count_stack(*b) < 2))
-		return ;
-	rotate_pile(a, 1, 0);
-	rotate_pile(b, 2, 0);
-	ft_putendl_fd("rr", 1);
+	result = NULL;
+	while (argv[i])
+	{
+		add_stack(ft_atoi(argv[i]), &result);
+		i++;
+	}
+	return (result);
 }

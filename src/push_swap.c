@@ -6,45 +6,13 @@
 /*   By: jalbiser <jalbiser@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/25 13:57:01 by jalbiser          #+#    #+#             */
-/*   Updated: 2024/04/10 14:46:33 by jalbiser         ###   ########.fr       */
+/*   Updated: 2024/04/10 15:37:34 by jalbiser         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 #include <stdio.h>
 
-void	*ft_add_stack(int n, t_stack **stack)
-{
-	t_stack	*result;
-	t_stack *last;
-
-	result = malloc(sizeof(t_stack));
-	if (!result)
-		return (NULL);
-	last = *stack;
-    while (last && last->next)
-        last = last->next;
-	result->number = n;
-	result->previous = *stack;
-	result->next = NULL;
-	if (!last)
-        *stack = result;
-    else
-        last->next = result;
-}
-
-t_stack	*ft_create_stack(char **argv, int i)
-{
-	t_stack	*result;
-
-	result = NULL;
-	while (argv[i])
-	{
-		ft_add_stack(ft_atoi(argv[i]), &result);
-		i++;
-	}
-	return (result);
-}
 void	printlist(t_stack *stack)
 {
 	if (!stack)
@@ -59,59 +27,6 @@ void	printlist(t_stack *stack)
 	}
 	printf("\n");
 }
-int is_sorted(t_stack *a)
-{
-	while (a)
-	{
-		if (a->number > a->next->number)
-			return (0);
-		a = a->next;
-	}
-	return (1);
-}
-
-void	sort_two_numbers(t_stack **a)
-{
-	if (is_sorted(*a))
-		return ;
-	swap_top(a, 1, 1);
-}
-
-void	sort_three_numbers(t_stack **a, t_stack **b)
-{
-	if (is_sorted(*a))
-		return ;
-	
-}
-
-void	sort_stack(t_stack **a, t_stack **b)
-{
-	if (count_stack(a) == 1)
-		return ;
-	else if (count_stack(a) == 2)
-		sort_two_numbers(a);
-	else if (count_stack(a) == 3)
-		sort_three_numbers(a, b);
-	else if (count_stack(a) > 3)
-		sort_big_numbers(a, b);
-	return ;
-}
-void	stack_clear(t_stack **stack)
-{
-	t_stack	*current;
-	t_stack	*next;
-
-	if (!stack)
-		return ;
-	current = *stack;
-	while (current)
-	{
-		next = current->next;
-		free(current);
-		current = next;
-	}
-	*stack = NULL;
-}
 
 int	main(int argc, char **argv)
 {
@@ -123,16 +38,24 @@ int	main(int argc, char **argv)
 	if (argc > 2)
 	{
 		ft_verify(argv, 1);
-		a = ft_create_stack(argv, 1);
+		a = create_stack(argv, 1);
 	}
 	else if (argc == 2)
 	{
 		ft_verify(ft_split(argv[1], ' '), 0);
-		a = ft_create_stack(ft_split(argv[1], ' '), 0);
+		a = create_stack(ft_split(argv[1], ' '), 0);
 	}
 	else
 		return (1);
-	sort_stack(&a, &b);
+
+	printf("A: "); printlist(a);
+	printf("B: "); printlist(b);
+	
+	swap_top(&a, 1, 1);
+	
+	printf("A: "); printlist(a);
+	printf("B: "); printlist(b);
+	
 	stack_clear(&a);
 	stack_clear(&b);
 	return (0);

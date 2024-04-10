@@ -1,24 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   rr.c                                               :+:      :+:    :+:   */
+/*   stack_clear.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jalbiser <jalbiser@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/04 13:41:56 by jalbiser          #+#    #+#             */
-/*   Updated: 2024/04/10 15:36:05 by jalbiser         ###   ########.fr       */
+/*   Created: 2024/04/10 15:26:38 by jalbiser          #+#    #+#             */
+/*   Updated: 2024/04/10 15:26:51 by jalbiser         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	rr(t_stack **a, t_stack **b)
+void	stack_clear(t_stack **stack)
 {
-	t_stack	*first;
+	t_stack	*current;
+	t_stack	*next;
 
-	if ((count_stack(*a) < 2) || (count_stack(*b) < 2))
+	if (!stack)
 		return ;
-	rotate_pile(a, 1, 0);
-	rotate_pile(b, 2, 0);
-	ft_putendl_fd("rr", 1);
+	current = *stack;
+	while (current)
+	{
+		next = current->next;
+		free(current);
+		current = next;
+	}
+	*stack = NULL;
 }

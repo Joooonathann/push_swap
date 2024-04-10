@@ -1,24 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   rr.c                                               :+:      :+:    :+:   */
+/*   add_stack.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jalbiser <jalbiser@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/04 13:41:56 by jalbiser          #+#    #+#             */
-/*   Updated: 2024/04/10 15:36:05 by jalbiser         ###   ########.fr       */
+/*   Created: 2024/04/10 15:28:47 by jalbiser          #+#    #+#             */
+/*   Updated: 2024/04/10 15:28:56 by jalbiser         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	rr(t_stack **a, t_stack **b)
+void	add_stack(int n, t_stack **stack)
 {
-	t_stack	*first;
+	t_stack	*result;
+	t_stack *last;
 
-	if ((count_stack(*a) < 2) || (count_stack(*b) < 2))
+	result = malloc(sizeof(t_stack));
+	if (!result)
 		return ;
-	rotate_pile(a, 1, 0);
-	rotate_pile(b, 2, 0);
-	ft_putendl_fd("rr", 1);
+	last = *stack;
+    while (last && last->next)
+        last = last->next;
+	result->number = n;
+	result->previous = *stack;
+	result->next = NULL;
+	if (!last)
+        *stack = result;
+    else
+        last->next = result;
 }
