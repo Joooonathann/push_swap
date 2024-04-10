@@ -36,7 +36,7 @@ void	create_node(int number, t_stack **stack)
 	node = malloc(sizeof(t_stack));
 	if (!node)
 	{
-		stack_clear(stack);
+		clear_stack(stack);
 		exit(1);
 	}
 	node->number = number;
@@ -90,7 +90,22 @@ int	main(int argc, char **argv)
 	printf("A: "); printlist(a);
 	printf("B: "); printlist(b);
 
-	stack_clear(&a);
-	stack_clear(&b);
+	sa(&a, 1);
+	pb(&a, &b, 1);
+	pb(&a, &b, 1);
+	pb(&a, &b, 1);
+	ra(&a, 1);
+	rb(&b, 1);
+	rrr(&a, &b);
+	sa(&a, 1);
+	pa(&a, &b, 1);
+	pa(&a, &b, 1);
+	pa(&a, &b, 1);
+
+	printf("A: "); printlist(a);
+	printf("B: "); printlist(b);
+
+	clear_stack(&a);
+	clear_stack(&b);
 	return (0);
 }

@@ -25,6 +25,17 @@ typedef struct s_stack
 
 void	ft_verify(char **argv, int start);
 int		count_stack(t_stack *stack);
-void	stack_clear(t_stack **stack);
+void	clear_stack(t_stack **stack);
+void    pa(t_stack **a, t_stack **b, int print);
+void    pb(t_stack **a, t_stack **b, int print);
+void    ra(t_stack **a, int print);
+void    rb(t_stack **b, int print);
+void    rr(t_stack **a, t_stack **b);
+void    rra(t_stack **a, int print);
+void    rrb(t_stack **b, int print);
+void    rrr(t_stack **a, t_stack **b);
+void    sa(t_stack **a, int print);
+void    sb(t_stack **b, int print);
+void    ss(t_stack **a, t_stack **b);
 
 #endif
