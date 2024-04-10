@@ -25,15 +25,5 @@ typedef struct s_stack
 
 void	ft_verify(char **argv, int start);
 int		count_stack(t_stack *stack);
-void	rotate_pile(t_stack **stack, int pile, int print);
-void	rotate_reverse_pile(t_stack **stack, int pile, int print);
-void	push_stack(t_stack **a, t_stack **b, int pile, int print);
-void	swap_top(t_stack **stack, int pile, int print);
-void	rr(t_stack **a, t_stack **b);
-void	rrr(t_stack **a, t_stack **b);
-void	ss(t_stack **a, t_stack **b);
-void	stack_clear(t_stack **stack);
-void	add_stack(int n, t_stack **stack);
-t_stack	*create_stack(char **argv, int i);
 
 #endif

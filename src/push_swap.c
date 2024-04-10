@@ -50,12 +50,7 @@ int	main(int argc, char **argv)
 
 	printf("A: "); printlist(a);
 	printf("B: "); printlist(b);
-	
-	swap_top(&a, 1, 1);
-	
-	printf("A: "); printlist(a);
-	printf("B: "); printlist(b);
-	
+
 	stack_clear(&a);
 	stack_clear(&b);
 	return (0);
