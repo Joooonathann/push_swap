@@ -6,7 +6,7 @@
 /*   By: jalbiser <jalbiser@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/27 11:41:36 by jalbiser          #+#    #+#             */
-/*   Updated: 2024/03/27 13:53:46 by jalbiser         ###   ########.fr       */
+/*   Updated: 2024/04/08 14:25:15 by jalbiser         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ void	push_stack(t_stack **a, t_stack **b, int pile, int print)
 		*a = tmp;
 	}
 	if (pile == 1 && print)
-		ft_putendl_fd("pa", 10);
+		ft_putendl_fd("pa", 1);
 	else if (pile == 2 && print)
 		ft_putendl_fd("pb", 1);
 }
