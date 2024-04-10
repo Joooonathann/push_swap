@@ -25,5 +25,6 @@ typedef struct s_stack
 
 void	ft_verify(char **argv, int start);
 int		count_stack(t_stack *stack);
+void	stack_clear(t_stack **stack);
 
 #endif

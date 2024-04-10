@@ -28,6 +28,45 @@ void	printlist(t_stack *stack)
 	printf("\n");
 }
 
+void	create_node(int number, t_stack **stack)
+{
+	t_stack	*node;
+	t_stack	*tmp;
+
+	node = malloc(sizeof(t_stack));
+	if (!node)
+	{
+		stack_clear(stack);
+		exit(1);
+	}
+	node->number = number;
+    node->next = NULL;
+    node->previous = NULL;
+	if (!*stack)
+		*stack = node;
+	else
+	{
+		tmp = *stack;
+		while (tmp->next != NULL)
+			tmp = tmp->next;
+		tmp->next = node;
+		node->previous = tmp;
+	}
+}
+
+t_stack	*create_stack(char **argv, int i)
+{
+	t_stack	*result;
+
+	result = NULL;
+	while (argv[i])
+	{
+		create_node(ft_atoi(argv[i]), &result);
+		i++;
+	}
+	return (result);
+}
+
 int	main(int argc, char **argv)
 {
 	t_stack	*a;
