@@ -6,7 +6,7 @@
 /*   By: jalbiser <jalbiser@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/25 13:57:01 by jalbiser          #+#    #+#             */
-/*   Updated: 2024/04/11 11:49:05 by jalbiser         ###   ########.fr       */
+/*   Updated: 2024/04/11 15:18:30 by jalbiser         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ void	printlist(t_stack *stack)
 	}
 	while (stack)
 	{
-		printf("%d->%d ", stack->index, stack->number);
+		printf("%d ", stack->number);
 		stack = stack->next;
 	}
 	printf("\n");
