@@ -1,33 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sa.c                                               :+:      :+:    :+:   */
+/*   sort_three.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jalbiser <jalbiser@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/11 10:00:27 by jalbiser          #+#    #+#             */
-/*   Updated: 2024/04/11 10:23:23 by jalbiser         ###   ########.fr       */
+/*   Created: 2024/04/11 10:05:31 by jalbiser          #+#    #+#             */
+/*   Updated: 2024/04/11 10:18:44 by jalbiser         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	sa(t_stack **a, int print)
+void	sort_three(t_stack **stack)
 {
-	t_stack	*first;
-	t_stack	*second;
+	int	biggest;
 
-	if (count_stack(*a) < 2)
-		return ;
-	first = *a;
-	second = (*a)->next;
-	first->next = second->next;
-	first->previous = second;
-	second->next = first;
-	second->previous = NULL;
-	if (first->next != NULL)
-		first->next->previous = first;
-	*a = second;
-	if (print)
-		ft_putendl_fd("sa", 1);
+	biggest = find_biggest(*stack);
+	if ((*stack)->number == biggest)
+		ra(stack, 1);
+	else if ((*stack)->next->number == biggest)
+		rra(stack, 1);
+	if ((*stack)->number > (*stack)->next->number)
+		sa(stack, 1);
 }

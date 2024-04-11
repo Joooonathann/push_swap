@@ -1,33 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sa.c                                               :+:      :+:    :+:   */
+/*   find_biggest.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jalbiser <jalbiser@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/11 10:00:27 by jalbiser          #+#    #+#             */
-/*   Updated: 2024/04/11 10:23:23 by jalbiser         ###   ########.fr       */
+/*   Created: 2024/04/11 10:04:32 by jalbiser          #+#    #+#             */
+/*   Updated: 2024/04/11 10:21:33 by jalbiser         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	sa(t_stack **a, int print)
+int	find_biggest(t_stack *stack)
 {
-	t_stack	*first;
-	t_stack	*second;
+	int	i;
 
-	if (count_stack(*a) < 2)
-		return ;
-	first = *a;
-	second = (*a)->next;
-	first->next = second->next;
-	first->previous = second;
-	second->next = first;
-	second->previous = NULL;
-	if (first->next != NULL)
-		first->next->previous = first;
-	*a = second;
-	if (print)
-		ft_putendl_fd("sa", 1);
+	if (!stack)
+		return (0);
+	i = -2147483648;
+	while (stack)
+	{
+		if (stack->number > i)
+			i = stack->number;
+		stack = stack->next;
+	}
+	return (i);
 }

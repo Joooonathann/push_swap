@@ -1,10 +1,22 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   rr.c                                               :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: jalbiser <jalbiser@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/04/11 09:59:35 by jalbiser          #+#    #+#             */
+/*   Updated: 2024/04/11 10:23:02 by jalbiser         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
-void    rr(t_stack **a, t_stack **b)
+void	rr(t_stack **a, t_stack **b)
 {
-    if (count_stack(*a) < 2 || count_stack(*b) < 2)
-		  return ;
-    ra(a, 0);
-    rb(b, 0);
-    ft_putendl_fd("rr", 1);
+	if (count_stack(*a) < 2 || count_stack(*b) < 2)
+		return ;
+	ra(a, 0);
+	rb(b, 0);
+	ft_putendl_fd("rr", 1);
 }
