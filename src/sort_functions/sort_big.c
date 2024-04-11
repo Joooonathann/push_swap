@@ -6,7 +6,7 @@
 /*   By: jalbiser <jalbiser@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/11 11:05:12 by jalbiser          #+#    #+#             */
-/*   Updated: 2024/04/11 11:50:02 by jalbiser         ###   ########.fr       */
+/*   Updated: 2024/04/11 14:52:48 by jalbiser         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,6 +79,12 @@ void	init_index(int *tab, t_stack **stack)
 		i++;
 	}
 }
+void	sort_stat(t_stack **a, t_stack **b)
+{
+	
+}
+
+
 //sort_big est ma fonction pour trier une pile contenant plus de trois nombres
 void	sort_big(t_stack **a, t_stack **b)
 {
@@ -87,5 +93,5 @@ void	sort_big(t_stack **a, t_stack **b)
 	tab_a = convert_tab(*a);
 	ft_bubblesort(tab_a, count_stack(*a));
 	init_index(tab_a, a);
-	return ((void)*b);
+	sort_stat(a, b);
 }
