@@ -18,6 +18,7 @@ SRC 	=	src/push_swap.c\
 			src/ps_functions/ss.c\
 			src/sort_functions/sort_stack.c\
 			src/sort_functions/sort_three.c\
+			src/sort_functions/sort_big.c\
 			src/sort_functions/sort_two.c\
 			src/utils/clear_stack.c\
 			src/utils/count_stack.c\

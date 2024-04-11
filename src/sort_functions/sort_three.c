@@ -6,12 +6,13 @@
 /*   By: jalbiser <jalbiser@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/11 10:05:31 by jalbiser          #+#    #+#             */
-/*   Updated: 2024/04/11 10:18:44 by jalbiser         ###   ########.fr       */
+/*   Updated: 2024/04/11 11:09:26 by jalbiser         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
+//sort_three est ma fonction pour trier une pile contenant trois nombres
 void	sort_three(t_stack **stack)
 {
 	int	biggest;

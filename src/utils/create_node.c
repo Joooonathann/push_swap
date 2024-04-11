@@ -6,7 +6,7 @@
 /*   By: jalbiser <jalbiser@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/11 10:03:09 by jalbiser          #+#    #+#             */
-/*   Updated: 2024/04/11 10:19:11 by jalbiser         ###   ########.fr       */
+/*   Updated: 2024/04/11 11:42:24 by jalbiser         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ void	create_node(int number, t_stack **stack)
 	node->number = number;
 	node->next = NULL;
 	node->previous = NULL;
+	node->index = 0;
 	if (!*stack)
 		*stack = node;
 	else
