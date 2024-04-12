@@ -6,7 +6,7 @@
 /*   By: jalbiser <jalbiser@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/11 11:05:12 by jalbiser          #+#    #+#             */
-/*   Updated: 2024/04/11 15:32:55 by jalbiser         ###   ########.fr       */
+/*   Updated: 2024/04/12 16:04:45 by jalbiser         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,33 +81,34 @@ void	init_index(int *tab, t_stack **stack)
 	}
 }
 
-void	send_to_b(t_stack **a, t_stack **b, int i)
-{
-	while ((*a)->index != i)
-		ra(a, 1);
-	pb(a, b, 1);
-}
-
 void	sort_stat(t_stack **a, t_stack **b)
 {
-	int		c;
-	int		d;
-	t_stack	*tmp;
-
-	c = (count_stack(*a) / 2);
-	tmp = *a;
-	d = 0;
-	while (d < c)
+	int i = (count_stack(*a) / 2);
+	int d = 0;
+	while (d < i)
 	{
-		while (tmp)
+		if ((*a)->index < i)
 		{
-			if (tmp->index <= c)
-				send_to_b(a, b, tmp->index);
-			tmp = tmp->next;
+			pb(a, b, 1);
+			d++;
 		}
-		d++;
+		else
+		{
+			ra(a, 1);
+		}
+	}
+	while (*a)
+		pb(a, b, 1);
+	int	z = count_stack(*b);
+	while (z != 0)
+	{
+		while ((*b)->index != z - 1)
+			rb(b, 1);
+		pa(a, b, 1);
+		z--;
 	}
 }
+
 
 // sort_big est ma fonction pour trier une pile contenant plus de trois nombres
 void	sort_big(t_stack **a, t_stack **b)
