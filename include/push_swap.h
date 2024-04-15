@@ -6,7 +6,7 @@
 /*   By: jalbiser <jalbiser@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/25 13:51:41 by jalbiser          #+#    #+#             */
-/*   Updated: 2024/04/11 11:42:05 by jalbiser         ###   ########.fr       */
+/*   Updated: 2024/04/15 07:43:00 by jalbiser         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,6 @@ void				create_node(int number, t_stack **stack);
 t_stack				*create_stack(char **argv, int i);
 int					find_biggest(t_stack *stack);
 int					is_sorted(t_stack *stack);
-void				sort_big(t_stack **a, t_stack **b);
+void 				sort_big(t_stack **a, t_stack **b);
 
 #endif
