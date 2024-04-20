@@ -57,6 +57,5 @@ int	main(int argc, char **argv)
 	printf("B: ");
 	printlist(b);
 	clear_stack(&a);
-	clear_stack(&b);
 	return (0);
 }

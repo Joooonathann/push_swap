@@ -18,6 +18,8 @@ void	sort_three(t_stack **stack)
 	int	biggest;
 
 	biggest = find_biggest(*stack);
+	if (is_sorted(*stack))
+		return ;
 	if ((*stack)->number == biggest)
 		ra(stack, 1);
 	else if ((*stack)->next->number == biggest)
