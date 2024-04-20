@@ -27,7 +27,6 @@ void	create_node(int number, t_stack **stack)
 	node->number = number;
 	node->next = NULL;
 	node->previous = NULL;
-	node->index = -1;
 	if (!*stack)
 		*stack = node;
 	else

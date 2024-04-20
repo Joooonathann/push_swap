@@ -47,14 +47,10 @@ int	main(int argc, char **argv)
 	}
 	else
 		return (1);
-	printf("A: ");
 	printlist(a);
-	printf("B: ");
 	printlist(b);
 	sort_stack(&a, &b);
-	printf("A: ");
 	printlist(a);
-	printf("B: ");
 	printlist(b);
 	clear_stack(&a);
 	return (0);

@@ -18,12 +18,8 @@
 
 typedef struct s_stack
 {
-	int				index;
-	int				push_cost;
-	int				above_median;
-	int				cheapest;
 	int				number;
-	struct s_stack	*target;
+	int				index;
 	struct s_stack	*previous;
 	struct s_stack	*next;
 }					t_stack;
