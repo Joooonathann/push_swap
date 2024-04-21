@@ -63,7 +63,6 @@ int	median_stack(t_stack *stack)
 int find_smallest(t_stack *stack)
 {
     if (!stack) {
-        printf("Error: Stack is empty.\n");
         return INT_MIN;
     }
 
@@ -138,14 +137,45 @@ int	counting_last(t_stack *stack, int n)
 	return (0);
 }
 
-void sort_big(t_stack **a, t_stack **b)
+int is_sorted_descending(t_stack *stack)
+{
+	while (stack && stack->next)
+	{
+		if (stack->number < stack->next->number)
+			return 0;
+		stack = stack->next;
+	}
+	return 1;
+}
+
+
+void	sort_three_descending(t_stack **stack)
+{
+	int	smallest;
+
+	smallest = find_smallest(*stack);
+	if (is_sorted_descending(*stack))
+		return ;
+	if ((*stack)->number == smallest)
+		ra(stack, 1);
+	else if ((*stack)->next->number == smallest)
+		rra(stack, 1);
+	if ((*stack)->number < (*stack)->next->number)
+		sa(stack, 1);
+}
+
+
+void recu_test(t_stack **a, t_stack **b)
 {
 	int size = count_stack(*a);
 	int median = median_stack(*a);
 
-	if (is_sorted(*a))
+	if (count_stack(*b) == 3)
+	{
+		sort_three_descending(b);
 		return ;
-    while (size--)
+	}
+	while (size--)
     {
         if ((*a)->number <= median)
             pb(a, b, 1);
@@ -157,31 +187,51 @@ void sort_big(t_stack **a, t_stack **b)
 				rra(a, 1);
 		}
     }
-	int stop = (*a)->number;
-	while (count_stack(*a))
-    {
-        if ((*a)->number == find_smallest(*a))
-            pb(a, b, 1);
-        else
+	if (*a)
+		recu_test(a, b);
+}
+
+void sort_five(t_stack **a, t_stack **b)
+{
+	while (count_stack(*b) != 3)
+	{
+		if ((*a)->number == find_smallest(*a))
+			pb(a, b, 1);
+		else
 		{
 			if (counting_last(*a, find_smallest(*a)))
 				ra(a, 1);
 			else
 				rra(a, 1);
 		}
-    }
-	while ((*b)->number != stop)
+	}
+	sort_three(b);
+	sort_two(a);
+	while (count_stack(*a) != 5)
 		pa(a, b, 1);
-	while (count_stack(*b))
-    {
-        if ((*b)->number == find_biggest(*b))
-            pa(a, b, 1);
-        else
+	
+}
+
+void sort_big(t_stack **a, t_stack **b)
+{
+	if (is_sorted(*a))
+		return ;
+	if (count_stack(*a) == 5)
+	{
+		sort_five(a, b);
+		return ;
+	}
+	recu_test(a, b);
+	while (*b)
+	{
+		if ((*b)->number == find_biggest(*b))
+			pa(a, b, 1);
+		else
 		{
 			if (counting_last(*b, find_biggest(*b)))
 				rb(b, 1);
 			else
 				rrb(b, 1);
 		}
-    }
+	}
 }
