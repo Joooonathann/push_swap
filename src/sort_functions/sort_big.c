@@ -79,6 +79,65 @@ int find_smallest(t_stack *stack)
     return smallest;
 }
 
+
+int	counting_step_one(t_stack *stack, int median)
+{
+	int	i, b;
+	t_stack *tmp;
+
+	i = 0;
+	b = 0;
+	tmp = stack;
+	while (tmp)
+	{
+		if (tmp->number <= median)
+			break ;
+		tmp = tmp->next;
+		i++;
+	}
+	while (stack->next)
+		stack = stack->next;
+	while (stack)
+	{
+		if (stack->number <= median)
+			break ;
+		stack = stack->previous;
+		b++;
+	}
+	if (i <= b)
+		return (1);
+	return (0);
+}
+
+int	counting_last(t_stack *stack, int n)
+{
+	int	i, b;
+	t_stack *tmp;
+
+	i = 0;
+	b = 0;
+	tmp = stack;
+	while (tmp)
+	{
+		if (tmp->number == n)
+			break ;
+		tmp = tmp->next;
+		i++;
+	}
+	while (stack->next)
+		stack = stack->next;
+	while (stack)
+	{
+		if (stack->number == n)
+			break ;
+		stack = stack->previous;
+		b++;
+	}
+	if (i <= b)
+		return (1);
+	return (0);
+}
+
 void sort_big(t_stack **a, t_stack **b)
 {
 	int size = count_stack(*a);
@@ -91,7 +150,12 @@ void sort_big(t_stack **a, t_stack **b)
         if ((*a)->number <= median)
             pb(a, b, 1);
         else
-			ra(a, 1);
+		{
+			if (counting_step_one(*a, median))
+				ra(a, 1);
+			else
+				rra(a, 1);
+		}
     }
 	int stop = (*a)->number;
 	while (count_stack(*a))
@@ -99,7 +163,12 @@ void sort_big(t_stack **a, t_stack **b)
         if ((*a)->number == find_smallest(*a))
             pb(a, b, 1);
         else
-			ra(a, 1);
+		{
+			if (counting_last(*a, find_smallest(*a)))
+				ra(a, 1);
+			else
+				rra(a, 1);
+		}
     }
 	while ((*b)->number != stop)
 		pa(a, b, 1);
@@ -108,6 +177,11 @@ void sort_big(t_stack **a, t_stack **b)
         if ((*b)->number == find_biggest(*b))
             pa(a, b, 1);
         else
-			rb(b, 1);
+		{
+			if (counting_last(*b, find_biggest(*b)))
+				rb(b, 1);
+			else
+				rrb(b, 1);
+		}
     }
 }

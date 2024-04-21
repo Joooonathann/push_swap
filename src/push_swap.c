@@ -47,11 +47,7 @@ int	main(int argc, char **argv)
 	}
 	else
 		return (1);
-	printlist(a);
-	printlist(b);
 	sort_stack(&a, &b);
-	printlist(a);
-	printlist(b);
 	clear_stack(&a);
 	return (0);
 }
