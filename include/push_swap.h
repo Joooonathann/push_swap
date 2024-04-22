@@ -6,7 +6,7 @@
 /*   By: jalbiser <jalbiser@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/25 13:51:41 by jalbiser          #+#    #+#             */
-/*   Updated: 2024/04/22 07:58:47 by jalbiser         ###   ########.fr       */
+/*   Updated: 2024/04/22 11:33:38 by jalbiser         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define PUSH_SWAP_H
 
 # include "../libft/libft.h"
+# include <limits.h>
 # include <stdlib.h>
 
 typedef struct s_stack
@@ -49,6 +50,14 @@ void				create_node(int number, t_stack **stack);
 t_stack				*create_stack(char **argv, int i);
 int					find_biggest(t_stack *stack);
 int					is_sorted(t_stack *stack);
-void 				sort_big(t_stack **a, t_stack **b);
+void				sort_big(t_stack **a, t_stack **b);
+void				init_node_a(t_stack *a, t_stack *b);
+void				init_node_b(t_stack *a, t_stack *b);
+t_stack				*find_max(t_stack *stack);
+t_stack				*find_min(t_stack *stack);
+void				prep_to_push(t_stack **stack, t_stack *to_rotate,
+						char stack_name);
+void				move_a_to_b(t_stack **a, t_stack **b);
+void				set_index(t_stack *stack);
 
 #endif

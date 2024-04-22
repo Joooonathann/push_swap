@@ -1,28 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sort_stack.c                                       :+:      :+:    :+:   */
+/*   prep_to_push.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jalbiser <jalbiser@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/11 10:06:33 by jalbiser          #+#    #+#             */
-/*   Updated: 2024/04/22 11:35:30 by jalbiser         ###   ########.fr       */
+/*   Created: 2024/04/22 11:30:18 by jalbiser          #+#    #+#             */
+/*   Updated: 2024/04/22 11:36:31 by jalbiser         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	sort_stack(t_stack **a, t_stack **b)
+void	prep_to_push(t_stack **stack, t_stack *to_rotate, char stack_name)
 {
-	if (!is_sorted(*a))
+	while (*stack != to_rotate)
 	{
-		if (count_stack(*a) == 1)
-			return ;
-		else if (count_stack(*a) == 2)
-			sa(a, 1);
-		else if (count_stack(*a) == 3)
-			sort_three(a);
-		else if (count_stack(*a) > 3)
-			sort_big(a, b);
+		if (stack_name == 'a')
+		{
+			if (to_rotate->above_median)
+				ra(stack, 1);
+			else
+				rra(stack, 1);
+		}
+		else if (stack_name == 'b')
+		{
+			if (to_rotate->above_median)
+				rb(stack, 1);
+			else
+				rrb(stack, 1);
+		}
 	}
 }

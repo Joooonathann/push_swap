@@ -21,6 +21,12 @@ SRC 	=	src/push_swap.c\
 			src/sort_functions/sort_big.c\
 			src/utils/clear_stack.c\
 			src/utils/count_stack.c\
+			src/utils/init_node_a.c\
+			src/utils/init_node_b.c\
+			src/utils/find.c\
+			src/utils/move_a_to_b.c\
+			src/utils/prep_to_push.c\
+			src/utils/set_index.c\
 			src/utils/create_node.c\
 			src/utils/create_stack.c\
 			src/utils/find_biggest.c\
