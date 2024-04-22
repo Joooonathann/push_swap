@@ -1,7 +1,7 @@
 NAME	=	push_swap
 CC		=	gcc
 INCLUDE =	include
-CFLAGS	=	-Wall -Wextra -Werror -I $(INCLUDE)
+CFLAGS	=	-g -Wall -Wextra -Werror -I $(INCLUDE)
 
 SRC 	=	src/push_swap.c\
 			src/parsing/ft_verify.c\
@@ -19,7 +19,6 @@ SRC 	=	src/push_swap.c\
 			src/sort_functions/sort_stack.c\
 			src/sort_functions/sort_three.c\
 			src/sort_functions/sort_big.c\
-			src/sort_functions/sort_two.c\
 			src/utils/clear_stack.c\
 			src/utils/count_stack.c\
 			src/utils/create_node.c\

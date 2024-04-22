@@ -6,7 +6,7 @@
 /*   By: jalbiser <jalbiser@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/25 13:51:41 by jalbiser          #+#    #+#             */
-/*   Updated: 2024/04/15 07:43:00 by jalbiser         ###   ########.fr       */
+/*   Updated: 2024/04/22 07:58:47 by jalbiser         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,10 @@ typedef struct s_stack
 {
 	int				number;
 	int				index;
+	int				push_cost;
+	int				above_median;
+	int				cheapest;
+	struct s_stack	*target;
 	struct s_stack	*previous;
 	struct s_stack	*next;
 }					t_stack;

@@ -6,7 +6,7 @@
 /*   By: jalbiser <jalbiser@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/11 10:05:31 by jalbiser          #+#    #+#             */
-/*   Updated: 2024/04/11 11:09:26 by jalbiser         ###   ########.fr       */
+/*   Updated: 2024/04/22 07:55:15 by jalbiser         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,6 @@ void	sort_three(t_stack **stack)
 	int	biggest;
 
 	biggest = find_biggest(*stack);
-	if (is_sorted(*stack))
-		return ;
 	if ((*stack)->number == biggest)
 		ra(stack, 1);
 	else if ((*stack)->next->number == biggest)
